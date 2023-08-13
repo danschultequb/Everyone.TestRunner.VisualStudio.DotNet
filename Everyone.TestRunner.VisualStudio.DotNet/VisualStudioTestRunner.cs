@@ -26,7 +26,7 @@ namespace Everyone
 
         public Microsoft.VisualStudio.TestPlatform.ObjectModel.TestCase TestToTestCase(Test test)
         {
-            string fullyQualifiedName = test.GetFullName(separator: ".");
+            string fullyQualifiedName = test.GetFullName();
 
             StackFrame frame = new StackFrame(skipFrames: 5, needFileInfo: true);
             string? codeFilePath = frame.GetFileName();
