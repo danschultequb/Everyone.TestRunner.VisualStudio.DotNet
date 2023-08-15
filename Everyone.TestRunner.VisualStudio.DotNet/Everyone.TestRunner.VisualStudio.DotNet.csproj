@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>Everyone.TestRunner.VisualStudio.DotNet</PackageId>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>dev6</VersionSuffix>
+    <VersionSuffix>dev007</VersionSuffix>
     <Title>Everyone.TestRunner.VisualStudio.DotNet</Title>
     <Company>everyone</Company>
     <Authors>everyone</Authors>
@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Everyone.TestRunner.DotNet" Version="1.0.0-dev6" />
+    <PackageReference Include="Everyone.TestRunner.DotNet" Version="1.0.0-dev007" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.7.0" />
   </ItemGroup>
