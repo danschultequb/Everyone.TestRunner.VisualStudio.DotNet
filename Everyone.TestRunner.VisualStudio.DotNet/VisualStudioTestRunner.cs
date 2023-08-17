@@ -88,9 +88,12 @@ namespace Everyone
             });
         }
 
-        public override void Test(string name, Action<Test> testAction)
+        public override void Test(string name, Action<Test> testAction, string fullNameSeparator = TestRunner.defaultFullNameSeparator)
         {
-            base.Test(name, this.invokeTests ? testAction : (Test test) => { });
+            base.Test(
+                name: name,
+                testAction: this.invokeTests ? testAction : (Test test) => { },
+                fullNameSeparator: fullNameSeparator);
         }
     }
 }

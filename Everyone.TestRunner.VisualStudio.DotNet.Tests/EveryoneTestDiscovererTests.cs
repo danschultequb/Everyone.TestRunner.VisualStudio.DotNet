@@ -7,15 +7,15 @@ namespace Everyone
     {
         public static void Test(TestRunner runner)
         {
-            runner.TestGroup(typeof(EveryoneTestDiscoverer), () =>
+            runner.TestType<EveryoneTestDiscoverer>(() =>
             {
-                runner.Test("Constructor()", (Test test) =>
+                runner.TestMethod("Constructor()", (Test test) =>
                 {
                     EveryoneTestDiscoverer discoverer = new EveryoneTestDiscoverer();
                     test.AssertNotNull(discoverer);
                 });
 
-                runner.TestGroup("DiscoverTests()", () =>
+                runner.TestMethod("DiscoverTests()", () =>
                 {
                     runner.Test("with null arguments", (Test test) =>
                     {
