@@ -20,6 +20,9 @@ namespace Everyone
         {
             this.invokeTests = invokeTests;
             this.testsToInvoke = testsToInvoke;
+
+            this.SetFullNameSeparator(nameof(TestType), ".");
+            this.SetFullNameSeparator(nameof(TestMethod), ".");
         }
 
         public string? CurrentSource { get; set; }
@@ -28,7 +31,7 @@ namespace Everyone
         {
             string fullyQualifiedName = test.GetFullName();
 
-            StackFrame frame = new StackFrame(skipFrames: 5, needFileInfo: true);
+            StackFrame frame = new StackFrame(skipFrames: 6, needFileInfo: true);
             string? codeFilePath = frame.GetFileName();
             int codeFileLineNumber = frame.GetFileLineNumber();
 
@@ -88,12 +91,14 @@ namespace Everyone
             });
         }
 
-        public override void Test(string name, Action<Test> testAction, string fullNameSeparator = TestRunner.defaultFullNameSeparator)
+        protected override void TestInner(TestParameters parameters)
         {
-            base.Test(
-                name: name,
-                testAction: this.invokeTests ? testAction : (Test test) => { },
-                fullNameSeparator: fullNameSeparator);
+            PreCondition.AssertNotNull(parameters, nameof(parameters));
+            PreCondition.AssertNotNullAndNotEmpty(parameters.GetName(), "parameters.GetName()");
+            PreCondition.AssertNotNull(parameters.GetAction(), "parameters.GetAction()");
+
+            base.TestInner(parameters
+                .SetAction(this.invokeTests ? parameters.GetAction()! : (Test test) => { }));
         }
     }
 }
