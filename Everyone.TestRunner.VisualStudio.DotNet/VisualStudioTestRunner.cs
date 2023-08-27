@@ -93,9 +93,9 @@ namespace Everyone
 
         protected override void TestInner(TestParameters parameters)
         {
-            PreCondition.AssertNotNull(parameters, nameof(parameters));
-            PreCondition.AssertNotNullAndNotEmpty(parameters.GetName(), "parameters.GetName()");
-            PreCondition.AssertNotNull(parameters.GetAction(), "parameters.GetAction()");
+            Pre.Condition.AssertNotNull(parameters, nameof(parameters));
+            Pre.Condition.AssertNotNullAndNotEmpty(parameters.GetName(), "parameters.GetName()");
+            Pre.Condition.AssertNotNull(parameters.GetAction(), "parameters.GetAction()");
 
             base.TestInner(parameters
                 .SetAction(this.invokeTests ? parameters.GetAction()! : (Test test) => { }));

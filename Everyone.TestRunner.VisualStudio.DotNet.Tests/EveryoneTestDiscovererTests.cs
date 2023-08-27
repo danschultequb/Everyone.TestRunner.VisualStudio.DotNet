@@ -23,7 +23,7 @@ namespace Everyone
                             new PreConditionFailure(
                                 "Expression: discoveryContext",
                                 "Expected: not null",
-                                "Actual:       null"));
+                                "Actual:   null"));
                     });
 
                     runner.Test("with empty sources", (Test test) =>

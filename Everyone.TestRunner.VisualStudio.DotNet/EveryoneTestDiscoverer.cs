@@ -14,7 +14,7 @@ namespace Everyone
             Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.IMessageLogger logger,
             Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter.ITestCaseDiscoverySink discoverySink)
         {
-            PreCondition.AssertNotNull(discoveryContext, nameof(discoveryContext));
+            Pre.Condition.AssertNotNull(discoveryContext, nameof(discoveryContext));
 
             VisualStudioTestRunner runner = new VisualStudioTestRunner(invokeTests: false);
             runner.OnTestStarted((Microsoft.VisualStudio.TestPlatform.ObjectModel.TestCase testCase) =>
